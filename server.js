@@ -59,8 +59,25 @@ app.delete('/delete/:id',async (req,res)=>{
     catch(err){
         res.send(err)
     }
+   
 
 
+})
+app.put("/update/:id",async(req,res)=>{
+    const {id}=req.params
+    try{
+        const userExist=await User.findByIdAndUpdate({_id:id},req.body )
+        if(!userExist){
+                return res.send({message:"User not found "})
+        }
+
+       return res.send({message:"User updated Successfully "})
+        
+    }
+    catch(err){
+        res.send(err)
+    }
+        
 })
 
 app.listen(4000, (req, res) => {
