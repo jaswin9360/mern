@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 export const connectDB = async () => {
 
     try {
-        const conn = await mongoose.connect("mongodb://localhost:27017", {
+        const conn = await mongoose.connect("mongodb://localhost:27017/e-zone", {
         })
 
         console.log(`MongoDB Connected:`)
