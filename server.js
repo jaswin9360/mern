@@ -37,6 +37,8 @@ app.post('/login',async(req,res)=>{
         if(password===userExist.password){
             return res.send({message:"Login Successfully"})
         }
+        const compare = await bcrypt.compare(password,User.password)
+        console.log(compare)
        res.send({message:"Invalid Credentials"})
     }
     catch(err){
